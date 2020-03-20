@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:roommmez/Widgets/NavigationBar.dart';
 import 'package:roommmez/Widgets/QuickMessages.dart';
 import 'package:roommmez/Widgets/SavingGoals.dart';
+import 'package:roommmez/Widgets/Tasks.dart';
 
 class HomeScreen extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            body: Container(
-                child: _createMainContainer(),
-                color: Colors.white,
-            ),
+            backgroundColor: Colors.grey[50],
+            body: _createMainContainer(),
         );
     }
 
@@ -33,7 +32,9 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
                 children: <Widget>[
                     QuickMessages(),
-                    SavingGoals()
+                    SavingGoals(),
+                    Padding(padding: EdgeInsets.all(16)),
+                    Tasks()
                 ]
             ),
         );

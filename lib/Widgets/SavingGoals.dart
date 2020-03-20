@@ -20,7 +20,6 @@ class _SavingGoalsState extends State<SavingGoals> {
     Widget _createHorizontalListView() {
         return Container(
             height: 180,
-            color: Colors.green,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, __) {
@@ -36,7 +35,6 @@ class _SavingGoalsState extends State<SavingGoals> {
 
     Widget _createMainContainer() {
         return Container(
-            color: Colors.blue,
             padding: EdgeInsets.symmetric(horizontal: kSavingGoalsMainContainerPadding),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

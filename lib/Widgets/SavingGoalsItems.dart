@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SavingGoalsItem extends StatefulWidget {
     @override
@@ -26,8 +27,10 @@ class _SavingGoalsItemState extends State<SavingGoalsItem> {
     Widget _createSavingGoalsColumnContainer() {
         return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-                _createImageShadowContainer()
+                _createImageShadowContainer(),
+                _createBottomContainer()
             ],
         );
     }
@@ -56,6 +59,59 @@ class _SavingGoalsItemState extends State<SavingGoalsItem> {
     }
     
     Widget _createImage() {
-        return Image.network("http://pngimg.com/uploads/christmas_tree/christmas_tree_PNG137.png",);
+        return Image.network(
+            "http://pngimg.com/uploads/christmas_tree/christmas_tree_PNG137.png"
+        );
+    }
+
+    Widget _createBottomContainer() {
+        return Column(
+            children: <Widget>[
+                _createScoreContainer(),
+                _createSavingGoalTitle()
+            ],
+        );
+    }
+
+    Widget _createScoreContainer() {
+        return Row(
+            children: <Widget>[
+                _createCurrentSavingText(Colors.green),
+                _createTotalSavingText(Colors.black54)
+            ],
+        );
+    }
+
+    Widget _createCurrentSavingText(Color color) {
+        return Text(
+            "200",
+            style: GoogleFonts.openSans(
+                color: color,
+                fontSize: 18,
+                fontWeight: FontWeight.w600
+            ),
+        );
+    }
+
+    Widget _createTotalSavingText(Color color) {
+        return Text(
+            " / 250 PLN",
+            style: GoogleFonts.openSans(
+                color: color,
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+            ),
+        );
+    }
+
+    Widget _createSavingGoalTitle() {
+        return Text(
+            "Christmas party",
+            style: GoogleFonts.poppins(
+                color: Colors.blue[900],
+                fontSize: 18,
+                fontWeight: FontWeight.w600
+            ),
+        );
     }
 }

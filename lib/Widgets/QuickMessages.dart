@@ -40,13 +40,16 @@ class QuickMessages extends StatelessWidget {
 
     ///Create inner column
     Widget _createInnerColumn() {
-        return Column(
-            children: <Widget>[
-                _createTitle(),
-                _createSeparation(),
-                _createHorizontalListView()
-            ],
-            crossAxisAlignment: CrossAxisAlignment.start,
+        return Container(
+            color: Colors.white,
+            child: Column(
+                children: <Widget>[
+                    _createTitle(),
+                    _createSeparation(),
+                    _createHorizontalListView()
+                ],
+                crossAxisAlignment: CrossAxisAlignment.start,
+            ),
         );
     }
 
