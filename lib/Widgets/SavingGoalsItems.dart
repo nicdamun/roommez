@@ -76,29 +76,29 @@ class _SavingGoalsItemState extends State<SavingGoalsItem> {
     Widget _createScoreContainer() {
         return Row(
             children: <Widget>[
-                _createCurrentSavingText(Colors.green),
-                _createTotalSavingText(Colors.black54)
+                _createCurrentSavingText(),
+                _createTotalSavingText()
             ],
         );
     }
 
-    Widget _createCurrentSavingText(Color color) {
+    Widget _createCurrentSavingText() {
         return Text(
             "200",
             style: GoogleFonts.openSans(
-                color: color,
+                color: Colors.green,
                 fontSize: 18,
                 fontWeight: FontWeight.w600
             ),
         );
     }
 
-    Widget _createTotalSavingText(Color color) {
+    Widget _createTotalSavingText() {
         return Text(
             " / 250 PLN",
             style: GoogleFonts.openSans(
-                color: color,
-                fontSize: 16,
+                color: Colors.black26,
+                fontSize: 14,
                 fontWeight: FontWeight.w500
             ),
         );
@@ -108,7 +108,7 @@ class _SavingGoalsItemState extends State<SavingGoalsItem> {
         return Text(
             "Christmas party",
             style: GoogleFonts.poppins(
-                color: Colors.blue[900],
+                color: Colors.indigo[900],
                 fontSize: 18,
                 fontWeight: FontWeight.w600
             ),

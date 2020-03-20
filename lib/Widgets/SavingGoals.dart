@@ -19,7 +19,7 @@ class _SavingGoalsState extends State<SavingGoals> {
 
     Widget _createHorizontalListView() {
         return Container(
-            height: 180,
+            height: 200,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, __) {

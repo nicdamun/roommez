@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roommmez/Widgets/BottomNavBar.dart';
 import 'package:roommmez/Widgets/NavigationBar.dart';
 import 'package:roommmez/Widgets/QuickMessages.dart';
 import 'package:roommmez/Widgets/SavingGoals.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
             backgroundColor: Colors.grey[50],
             body: _createMainContainer(),
+            bottomNavigationBar: BottomNavBar(),
         );
     }
 

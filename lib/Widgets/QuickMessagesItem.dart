@@ -7,11 +7,23 @@ class QuickMessagesItem extends StatelessWidget {
         return _createMainContainer();
     }
 
-    Widget _createImage() {
-        return Image.network(
-            "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg",
-            width: 120,
-            height: 120,
+    Widget _createCircularImageContainer() {
+        return Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: _createImage(),
+                    fit: BoxFit.cover
+                )
+            ),
+        );
+    }
+
+    ImageProvider _createImage() {
+        return NetworkImage(
+            "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg"
         );
     }
 
@@ -23,7 +35,8 @@ class QuickMessagesItem extends StatelessWidget {
     Widget _createMessageContainer() {
         return Column(
             children: <Widget>[
-                _createImage(),
+                _createCircularImageContainer(),
+                Padding(padding: EdgeInsets.all(4)),
                 _createText()
             ],
         );
@@ -33,9 +46,9 @@ class QuickMessagesItem extends StatelessWidget {
         return Text(
             "Emilia",
             style: GoogleFonts.poppins(
-                fontSize: 18,
+                fontSize: 14,
                 color: Colors.black,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.w500
             ),
         );
     }
