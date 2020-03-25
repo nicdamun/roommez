@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:roommmez/Core/Models/BottomItemModel.dart';
 
-class BottomNavBarViewModel {
+class BottomNavBarViewModel extends ChangeNotifier {
     List<BottomItemModel> _bottomItems = [];
     
     BottomNavBarViewModel() {
@@ -15,6 +15,13 @@ class BottomNavBarViewModel {
         ..add(bottomItemModelReward)
         ..add(bottomItemModelMenu)
         ..add(bottomItemModelProfile);
+    }
+    
+    void selectItem(BottomItemModel bottomItemModel) {
+        _bottomItems.firstWhere((item) => item.isSelected, orElse: () => null)?.isSelected = false;
+        final selectedItem = _bottomItems.firstWhere((item) => item.name == bottomItemModel.name, orElse: () => null);
+        selectedItem?.isSelected = true;
+        notifyListeners();
     }
 
     UnmodifiableListView<BottomItemModel> get bottomItems => UnmodifiableListView(_bottomItems);

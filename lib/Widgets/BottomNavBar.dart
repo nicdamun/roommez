@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:roommmez/Core/Models/BottomItemModel.dart';
 import 'package:roommmez/Core/ViewModels/BottomNavBarViewModel.dart';
 
@@ -9,8 +10,6 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-    
-    final _bottomNavBarViewModel = BottomNavBarViewModel();
     
     @override
     Widget build(BuildContext context) {
@@ -29,10 +28,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
 
     Widget _createIconsContainer() {
-        return Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: _bottomNavBarViewModel.bottomItems.map((bottomItem) => _createItemContainer(bottomItem)).toList(),
+        return Consumer<BottomNavBarViewModel>(
+            builder: (_, bottomNavBarViewModel, __) => Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: bottomNavBarViewModel.bottomItems.map((bottomItem) => InkWell(
+                    onTap: () => bottomNavBarViewModel.selectItem(bottomItem),
+                    child: _createItemContainer(bottomItem),
+                )).toList(),
+            ),
         );
     }
 
@@ -46,7 +50,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     Widget _createItemContainer(BottomItemModel bottomItemModel) {
         Widget bottomItem;
-        if (bottomItemModel.isSelected) {
+        if (bottomItemModel.isSelected == true) {
             bottomItem = _createTextItem(bottomItemModel.name);
         } else {
             bottomItem = _createIconItem(bottomItemModel.iconData);

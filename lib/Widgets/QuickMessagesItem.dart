@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:roommmez/Core/Models/QuickMessageModel.dart';
 
 class QuickMessagesItem extends StatelessWidget {
+    
+    final QuickMessageModel quickMessageModel;
+    
+    QuickMessagesItem({this.quickMessageModel});
+    
     @override
     Widget build(BuildContext context) {
         return _createMainContainer();
@@ -23,7 +29,7 @@ class QuickMessagesItem extends StatelessWidget {
 
     ImageProvider _createImage() {
         return NetworkImage(
-            "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg"
+            quickMessageModel.image
         );
     }
 
@@ -44,7 +50,7 @@ class QuickMessagesItem extends StatelessWidget {
 
     Widget _createText() {
         return Text(
-            "Emilia",
+            quickMessageModel.name,
             style: GoogleFonts.poppins(
                 fontSize: 14,
                 color: Colors.black,
